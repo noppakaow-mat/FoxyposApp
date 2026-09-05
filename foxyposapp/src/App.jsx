@@ -23,7 +23,7 @@ import OrderHistoryScreen from "./screens/customer/OrderHistoryScreen";
 import DashboardScreen from "./screens/manager/DashboardScreen";
 import StockScreen from "./screens/manager/StockScreen";
 import EmployeeScreen from "./screens/manager/EmployeeScreen";
-import ManagerLayout from "./layout/ManagerLayout";
+import ManagerLayout from "./Layout/ManagerLayout";
 
 export default function App() {
 
