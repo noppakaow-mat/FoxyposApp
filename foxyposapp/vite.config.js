@@ -4,18 +4,18 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
-    react()
+    react(),
+    tailwindcss(),
   ],
 
-  server:{
-    host:"0.0.0.0",
-    port:5173,
-    watch:{
-      usePolling:true
-    }
+  // สำหรับ GitHub Pages
+  base: "/FoxyposApp/",
+
+  server: {
+    host: "0.0.0.0",
+    port: 5173,
+    watch: {
+      usePolling: true,
+    },
   },
-  plugins:[
-    react(),
-    tailwindcss()
-  ],
 });
