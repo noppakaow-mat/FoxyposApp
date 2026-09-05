@@ -1,4 +1,4 @@
-import api from "./api";
+import api from "./Api";
 
 //get all user
 export const getUsers = () => api.get("/users");

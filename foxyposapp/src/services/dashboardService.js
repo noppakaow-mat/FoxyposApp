@@ -1,4 +1,4 @@
-import api from "./api";
+import api from "./Api";
 
 // Dashboard Summary
 export const getDashboardSummary = async () => {
