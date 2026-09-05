@@ -38,7 +38,7 @@ export default function TableManagementScreen() {
       // ใช้ Optional Chaining ป้องกันกรณีข้อมูล session ส่งมาไม่ครบ
       if (result?.session?.id) {
         window.open(
-          `/receipt/${result.session.id}`,
+          `${import.meta.env.BASE_URL}receipt/${result.session.id}`,
           "_blank",
           "width=400,height=700"
         );

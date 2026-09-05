@@ -38,6 +38,9 @@ jobs:
         working-directory: foxyposapp
         run: npm run build
 
+      - name: Add SPA fallback for direct routes
+        run: cp foxyposapp/dist/index.html foxyposapp/dist/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
