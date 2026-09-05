@@ -23,7 +23,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT"],
     credentials: true,
   },
@@ -43,9 +43,7 @@ io.on("connection", (socket) => {
 // Middleware (GENERATOR STYLE)
 // =====================
 app.use(cors({
-  // Development is accessed from phones using a LAN/VPN IP, which can change.
-  // Authentication remains enforced by the protected route middleware.
-  origin: true,
+  origin: process.env.FRONTEND_URL,
   credentials: true,
 }));
 
