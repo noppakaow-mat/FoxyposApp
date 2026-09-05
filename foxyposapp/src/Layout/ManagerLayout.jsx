@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
-
-import Sidebar from "../components/manager/sidebar/Sidebar";
-import Header from "../components/manager/sidebar/Header";
+import Sidebar from "../components/Manager/sidebar/Sidebar";
+import Header from "../components/Manager/sidebar/Header";
 
 
 export default function ManagerLayout() {

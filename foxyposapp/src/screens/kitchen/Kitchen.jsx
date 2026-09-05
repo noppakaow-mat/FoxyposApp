@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { API_URL } from "../../services/Api";
 
-import KitchenHeader from "../../components/kitchen/KitchenHeader";
-import KitchenTableCard from "../../components/kitchen/KitchenTableCard";
-import EmptyKitchen from "../../components/kitchen/EmptyKitchen";
+
+import KitchenHeader from "../../components/Kitchen/KitchenHeader";
+import KitchenTableCard from "../../components/Kitchen/KitchenTableCard";
+import EmptyKitchen from "../../components/Kitchen/EmptyKitchen";
 
 import socket from "./kitchenSocket";
 
