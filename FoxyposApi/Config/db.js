@@ -22,9 +22,16 @@ if (
     poolConfig.ssl = { rejectUnauthorized: false };
 }
 
+// Use Thailand time for CURRENT_DATE/CURRENT_TIMESTAMP and legacy TIMESTAMP
+// columns in the existing schema.
+poolConfig.options = "-c timezone=Asia/Bangkok";
+
 const pool = new Pool(poolConfig);
 
-pool.on("connect", () => {
+pool.on("connect", (client) => {
+    client.query("SET TIME ZONE 'Asia/Bangkok'").catch((error) => {
+        console.error("Failed to set database timezone:", error);
+    });
     console.log("PostgreSQL connected");
 });
 module.exports = pool;

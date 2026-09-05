@@ -153,7 +153,9 @@ export default function EmployeeTable({
                   <td className="py-4 text-center text-gray-500">
 
                     {user.created_at
-                      ? new Date(user.created_at).toLocaleDateString("th-TH")
+                      ? new Date(user.created_at).toLocaleDateString("th-TH", {
+                          timeZone: "Asia/Bangkok",
+                        })
                       : "-"}
 
                   </td>

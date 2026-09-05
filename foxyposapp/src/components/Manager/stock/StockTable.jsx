@@ -167,7 +167,9 @@ export default function StockTable({
                                             {item.updated_at
                                                 ? new Date(
                                                     item.updated_at
-                                                ).toLocaleString("th-TH")
+                                                ).toLocaleString("th-TH", {
+                                                    timeZone: "Asia/Bangkok",
+                                                })
                                                 : "-"}
                                         </td>
 

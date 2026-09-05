@@ -1,33 +1,34 @@
 import { useState } from "react";
 import personIcon from "../../assets/icons/person.svg";
-import { API_URL } from "../../services/Api";
+import API from "../../services/Api";
 
 export default function CheckoutPanel({ table, onClose, onFinish }) {
     const [payment, setPayment] = useState("Cash");
     const [qrImage, setQrImage] = useState("");
     const [loadingQR, setLoadingQR] = useState(false);
+    const [qrError, setQrError] = useState("");
 
     if (!table) return null;
 
     const createPromptPayQR = async () => {
         try {
             setLoadingQR(true);
-            const response = await fetch(`${API_URL}/payments/promptpay`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    amount: Number(table.total_amount || 0)
-                })
+            setQrError("");
+            const { data } = await API.post("/payments/promptpay", {
+                amount: Number(table.total_amount || 0)
             });
 
-            const data = await response.json();
             if (data.qr) {
                 setQrImage(data.qr);
+            } else {
+                setQrError(data.message || "ไม่สามารถสร้าง QR Code ได้");
             }
         } catch (error) {
             console.error("PromptPay QR Error:", error);
+            setQrError(
+                error.response?.data?.message ||
+                "ไม่สามารถเชื่อมต่อระบบชำระเงินได้"
+            );
         } finally {
             setLoadingQR(false);
         }
@@ -41,6 +42,7 @@ export default function CheckoutPanel({ table, onClose, onFinish }) {
             createPromptPayQR();
         } else {
             setQrImage("");
+            setQrError("");
         }
     };
 
@@ -110,7 +112,9 @@ export default function CheckoutPanel({ table, onClose, onFinish }) {
                             </p>
                         </>
                     ) : (
-                        <p className="text-sm text-gray-400">ไม่สามารถโหลด QR Code ได้</p>
+                        <p className="text-center text-sm text-red-500">
+                            {qrError || "ไม่สามารถโหลด QR Code ได้"}
+                        </p>
                     )}
                 </div>
             )}

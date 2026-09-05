@@ -13,6 +13,7 @@ export const formatDateTime = (date) => {
   if (!date) return "-";
 
   return new Date(date).toLocaleString("th-TH", {
+    timeZone: "Asia/Bangkok",
     day: "2-digit",
     month: "2-digit",
     year: "numeric",

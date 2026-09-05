@@ -1,4 +1,10 @@
 const createError = require("http-errors");
+
+// PostgreSQL TIMESTAMP columns in the current schema do not carry timezone
+// information. Keep Node's date parser aligned with the POS timezone so those
+// values are serialized to the client as the correct instant.
+process.env.TZ = process.env.TZ || "Asia/Bangkok";
+
 const express = require("express");
 const http = require("http");
 const path = require("path");
