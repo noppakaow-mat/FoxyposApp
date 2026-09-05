@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const pool = require("../config/db");
+const pool = require("../Config/db");
 
 async function seed() {
   try {
