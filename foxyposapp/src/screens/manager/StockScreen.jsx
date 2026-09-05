@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import StockTable from "../../components/manager/stock/StockTable";
-import ImportExcelButton from "../../components/manager/stock/ImportExcelButton";
-import AddStockModal from "../../components/manager/stock/AddStockModal";
+import StockTable from "../../components/Manager/stock/StockTable";
+import ImportExcelButton from "../../components/Manager/stock/ImportExcelButton";
+import AddStockModal from "../../components/Manager/stock/AddStockModal";
 
 import { getStocks } from "../../services/stockService";
 

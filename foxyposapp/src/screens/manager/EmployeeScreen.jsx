@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import EmployeeTable from "../../components/manager/employee/EmployeeTable";
-import EmployeeModal from "../../components/manager/employee/EmployeeModal";
+import EmployeeTable from "../../components/Manager/employee/EmployeeTable";
+import EmployeeModal from "../../components/Manager/employee/EmployeeModal";
 
 import {
   getUsers,
