@@ -1,4 +1,4 @@
-const pool = require("../config/db");
+const pool = require("../Config/db");
 const QRCode = require("qrcode");
 
 // =====================================
