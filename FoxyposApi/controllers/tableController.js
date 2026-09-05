@@ -235,9 +235,14 @@ exports.getSessionQr = async (req, res) => {
       return res.status(404).json({ message: "Active table session not found" });
     }
 
-    // Set PUBLIC_BASE_URL to the LAN/production address when the POS is behind a proxy.
-    const baseUrl = (process.env.PUBLIC_BASE_URL || `${req.protocol}://${req.get("host")}`).replace(/\/$/, "");
-    const customerUrl = `${baseUrl}/customer-menu.html?sessionId=${encodeURIComponent(sessionId)}`;
+    // Prefer the deployed frontend URL so QR codes open the React customer route.
+    const baseUrl = (
+      process.env.FRONTEND_URL ||
+      process.env.PUBLIC_FRONTEND_URL ||
+      process.env.PUBLIC_BASE_URL ||
+      `${req.protocol}://${req.get("host")}`
+    ).replace(/\/$/, "");
+    const customerUrl = `${baseUrl}/order/${encodeURIComponent(sessionId)}`;
     const qrCode = await QRCode.toDataURL(customerUrl, {
       errorCorrectionLevel: "M",
       margin: 2,

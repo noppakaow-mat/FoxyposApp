@@ -9,6 +9,10 @@ const { Server } = require("socket.io");
 
 require("dotenv").config();
 
+// Keep compatibility with the existing local environment while allowing
+// Render to use the clearer FRONTEND_URL variable.
+const frontendUrl = process.env.FRONTEND_URL || process.env.PUBLIC_FRONTEND_URL;
+
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth");
 const orderRoutes = require("./routes/orderRoutes");
@@ -23,7 +27,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL,
+    origin: frontendUrl,
     methods: ["GET", "POST", "PUT"],
     credentials: true,
   },
@@ -43,7 +47,7 @@ io.on("connection", (socket) => {
 // Middleware (GENERATOR STYLE)
 // =====================
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: frontendUrl,
   credentials: true,
 }));
 

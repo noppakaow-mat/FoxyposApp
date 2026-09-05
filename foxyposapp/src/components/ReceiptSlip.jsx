@@ -4,8 +4,7 @@ export default function ReceiptSlip({ data }) {
   if (!data || !data.session || !data.calculation) return null;
 
   const sessionId = data.session.id;
-  const baseUrl = import.meta.env.VITE_APP_URL || window.location.origin;
-  const orderUrl = `${window.location.origin}/order/${sessionId}`;
+  const orderUrl = `${window.location.origin}${import.meta.env.BASE_URL}order/${sessionId}`;
 
   return (
     <div className="bg-white p-4 text-black border border-gray-200 shadow-sm rounded-lg" style={{ width: "300px" }}>

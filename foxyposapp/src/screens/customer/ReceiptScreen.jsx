@@ -47,8 +47,7 @@ export default function ReceiptScreen() {
   // =========================
   // QR CUSTOMER ORDER URL
   // =========================
-  const baseUrl = import.meta.env.VITE_APP_URL || window.location.origin;
-  const orderUrl = `${window.location.origin}/order/${sessionId}`;
+  const orderUrl = `${window.location.origin}${import.meta.env.BASE_URL}order/${sessionId}`;
   console.log("CUSTOMER QR:", orderUrl);
 
   const handlePrint = () => {

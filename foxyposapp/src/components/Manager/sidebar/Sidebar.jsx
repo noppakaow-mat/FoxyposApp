@@ -28,7 +28,7 @@ export default function Sidebar() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    window.location.href = "/";
+    window.location.href = import.meta.env.BASE_URL;
   };
 
   return (
