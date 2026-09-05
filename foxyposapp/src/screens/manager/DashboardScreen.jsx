@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-import SummaryCards from "../../components/manager/dashboard/SummaryCards";
-import RevenueChart from "../../components/manager/dashboard/RevenueChart";
-import MonthlySalesChart from "../../components/manager/dashboard/MonthlySalesChart";
-import TopProductsTable from "../../components/manager/dashboard/TopProductsTable";
+import SummaryCards from "../../components/Manager/dashboard/SummaryCards";
+import RevenueChart from "../../components/Manager/dashboard/RevenueChart";
+import MonthlySalesChart from "../../components/Manager/dashboard/MonthlySalesChart";
+import TopProductsTable from "../../components/Manager/dashboard/TopProductsTable";
 
 import {
   getDashboardSummary,

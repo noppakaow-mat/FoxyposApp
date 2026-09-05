@@ -1,6 +1,6 @@
 import { useState } from "react";
 import personIcon from "../../assets/icons/person.svg";
-import { API_URL } from "../../services/api";
+import { API_URL } from "../../services/Api";
 
 export default function CheckoutPanel({ table, onClose, onFinish }) {
     const [payment, setPayment] = useState("Cash");
